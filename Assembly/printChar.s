@@ -5,6 +5,13 @@ lbl:	resb	0x1		;trying to print 1 char as a string
 	global	printChar
 
 printChar:
+
+	;;  back up all the registers we want to use here in this function call
+	push 	rax
+	push	rbx
+	push	rcx
+	push	rdx
+	
 	;;  get AL into the string starting at lbl
 	mov	[lbl], al
 
@@ -16,5 +23,11 @@ printChar:
 	int	0x80 		;ask Linux to do something for me
 
 	;; holy printing, batman! We're done!
+
+	;; restore all registers from stack
+	pop	rdx
+	pop	rcx
+	pop	rbx
+	pop	rax
 	
 	ret
