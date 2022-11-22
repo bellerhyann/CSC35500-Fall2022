@@ -30,7 +30,7 @@ _start:
 	mov		rdx, 0  ; rdx will be sum, initialize to 0
 	
 nextDigit:
-	;;  want 	rdx+= al ;CHALLENGE FOR BREAK !!!! 
+	;  want 	rdx+= al ;CHALLENGE FOR BREAK !!!! 
 	
 	;mov		al, [buff+rbx] 
 	;call		printChar
