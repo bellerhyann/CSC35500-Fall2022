@@ -26,13 +26,16 @@ _start:
 	dec		rcx	; skip the newline
 	
 	mov		rbx, 0	; start at beginning of string read.
-
 	mov		rdx, 0  ; rdx will be sum, initialize to 0
 	
 nextDigit:
-	;  want 	rdx+= al ;CHALLENGE FOR BREAK !!!! 
+	;  want 	rdx+= al
+	mov		rax, 0	;clear out rax before proceeding	
+	mov		al, [buff+rbx] ;pull next CHAR from memory
+	sub		al, '0'	       ;convert char to numeric equivalent
+	add		rdx, rax
 	
-	;mov		al, [buff+rbx] 
+	;mov		al, [buff+rbx]
 	;call		printChar
 
 	inc 		rbx
